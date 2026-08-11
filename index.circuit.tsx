@@ -170,8 +170,8 @@ export const BOOST_CC2564MODA = () => (
       name="J16"
       schSheetName="power_input"
       pcbX={-22.2}
-      pcbY={25.9}
-      pcbRotation={0}
+      pcbY={24.5}
+      pcbRotation={180}
       allowOffBoard
       schX={-12}
       schY={4}
