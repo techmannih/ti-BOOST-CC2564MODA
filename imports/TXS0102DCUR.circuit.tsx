@@ -45,7 +45,7 @@ export const TXS0102DCUR = (props: ChipProps<typeof pinLabels>) => (
       },
     }}
     schWidth={1.5}
-    schHeight={0.8}
+    schHeight={1.2}
     supplierPartNumbers={{
       jlcpcb: ["C53434"],
     }}

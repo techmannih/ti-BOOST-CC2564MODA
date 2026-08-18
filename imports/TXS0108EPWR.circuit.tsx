@@ -32,7 +32,7 @@ export const TXS0108EPWR = (props: ChipProps<typeof txs0108PinLabels>) => (
     supplierPartNumbers={{ jlcpcb: ["C17206"] }}
     footprint="tssop20"
     schWidth={1.58}
-    schHeight={2}
+    schHeight={2.3}
     schPinArrangement={{
       leftSide: {
         direction: "top-to-bottom",

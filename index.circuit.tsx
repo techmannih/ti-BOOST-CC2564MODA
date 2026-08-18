@@ -89,7 +89,7 @@ export const BOOST_CC2564MODA = () => (
       gender="female"
       layer="bottom"
       pcbX={-24}
-      pcbY={1.8}
+      pcbY={0}
       pcbRotation={90}
       schX={-7}
       schY={3}
@@ -106,11 +106,12 @@ export const BOOST_CC2564MODA = () => (
       name="J3"
       schSheetName="boosterpack_connectors"
       pinCount={10}
+      footprint="pinrow10_female_p2.54mm_nosquareplat"
       pitch="2.54mm"
       gender="female"
       layer="bottom"
       pcbX={-20}
-      pcbY={-1.8}
+      pcbY={0}
       pcbRotation={90}
       schX={-7}
       schY={-3}
@@ -128,11 +129,12 @@ export const BOOST_CC2564MODA = () => (
       name="J4"
       schSheetName="boosterpack_connectors"
       pinCount={10}
+      footprint="pinrow10_female_p2.54mm_nosquareplat"
       pitch="2.54mm"
       gender="female"
       layer="bottom"
       pcbX={19.8}
-      pcbY={1.8}
+      pcbY={0}
       pcbRotation={90}
       schX={7}
       schY={-3}
@@ -148,11 +150,12 @@ export const BOOST_CC2564MODA = () => (
       name="J2"
       schSheetName="boosterpack_connectors"
       pinCount={10}
+      footprint="pinrow10_female_p2.54mm_nosquareplat"
       pitch="2.54mm"
       gender="female"
       layer="bottom"
       pcbX={23.8}
-      pcbY={-1.8}
+      pcbY={0}
       pcbRotation={90}
       schX={7}
       schY={3}
@@ -175,7 +178,6 @@ export const BOOST_CC2564MODA = () => (
       allowOffBoard
       schX={-12}
       schY={4}
-      schHeight={1}
       connections={{
         VBUS: "net.USB_5V",
         D_N: "net.USB_D_N",
@@ -193,8 +195,8 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="power_input"
       inductance="0H"
       footprint="res0603"
-      pcbX={-26.7}
-      pcbY={19.9}
+      pcbX={-25.4}
+      pcbY={21.1}
       schX={-10}
       schY={8.5}
       connections={{ pin1: "net.USB_D_N", pin2: "net.USB_D_N_FILTERED" }}
@@ -204,8 +206,8 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="power_input"
       inductance="0H"
       footprint="res0603"
-      pcbX={-19.1}
-      pcbY={19.9}
+      pcbX={-20.4}
+      pcbY={21.1}
       schX={-4}
       schY={8.5}
       connections={{ pin1: "net.USB_D_P", pin2: "net.USB_D_P_FILTERED" }}
@@ -215,8 +217,8 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="power_input"
       schottky
       footprint="sod123"
-      pcbX={-15.2}
-      pcbY={19.4}
+      pcbX={-15.7}
+      pcbY={20.2}
       pcbRotation={90}
       schX={-7}
       schY={2.5}
@@ -228,7 +230,7 @@ export const BOOST_CC2564MODA = () => (
       schottky
       footprint="sod123"
       pcbX={-16.6}
-      pcbY={12.2}
+      pcbY={12.4}
       pcbRotation={90}
       schX={-7}
       schY={0.5}
@@ -270,7 +272,6 @@ export const BOOST_CC2564MODA = () => (
       pcbY={16.7}
       schX={-5}
       schY={-0.5}
-      schOrientation="vertical"
       connections={{ pin1: "net.LDO_INPUT", pin2: "net.GND" }}
     />
     <capacitor
@@ -279,11 +280,10 @@ export const BOOST_CC2564MODA = () => (
       capacitance="10uF"
       footprint="cap0603"
       pcbX={-22.9}
-      pcbY={19.2}
-      pcbRotation={0}
+      pcbY={20.3}
+      pcbRotation={90}
       schX={-2.5}
       schY={-2}
-      schOrientation="vertical"
       connections={{ pin1: "net.LDO_3V3", pin2: "net.GND" }}
     />
     <capacitor
@@ -291,12 +291,11 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="power_input"
       capacitance="10nF"
       footprint="cap0402"
-      pcbX={-17.7}
+      pcbX={-17.9}
       pcbY={16.2}
       pcbRotation={90}
       schX={0}
       schY={-2}
-      schOrientation="vertical"
       connections={{ pin1: "net.LDO_NR", pin2: "net.GND" }}
     />
     <pinheader
@@ -305,8 +304,8 @@ export const BOOST_CC2564MODA = () => (
       pinCount={3}
       pitch="2.54mm"
       gender="male"
-      pcbX={-10}
-      pcbY={8}
+      pcbX={-10.4}
+      pcbY={15.3}
       schX={3.5}
       schY={2}
       connections={{
@@ -340,7 +339,6 @@ export const BOOST_CC2564MODA = () => (
       pcbY={17.6}
       schX={5.5}
       schY={-0.5}
-      schOrientation="vertical"
       connections={{ pin1: "net.LIN_3V3", pin2: "net.GND" }}
     />
     <capacitor
@@ -352,7 +350,6 @@ export const BOOST_CC2564MODA = () => (
       pcbY={17.2}
       schX={10}
       schY={-0.5}
-      schOrientation="vertical"
       connections={{ pin1: "net.V1_8", pin2: "net.GND" }}
     />
 
@@ -363,8 +360,8 @@ export const BOOST_CC2564MODA = () => (
       pinCount={2}
       pitch="2.54mm"
       gender="unpopulated"
-      pcbX={-10.4}
-      pcbY={25.5}
+      pcbX={-7.4}
+      pcbY={23.3}
       pcbRotation={90}
       schX={-13}
       schY={2}
@@ -375,8 +372,8 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="rail_distribution"
       resistance="0ohm"
       footprint="res0402"
-      pcbX={-10.4}
-      pcbY={12}
+      pcbX={-9.8}
+      pcbY={23.3}
       pcbRotation={90}
       schX={-13}
       schY={0}
@@ -388,7 +385,7 @@ export const BOOST_CC2564MODA = () => (
       pinCount={2}
       pitch="2.54mm"
       gender="unpopulated"
-      pcbX={-4.2}
+      pcbX={-2.4}
       pcbY={23.3}
       pcbRotation={90}
       schX={-8}
@@ -400,8 +397,8 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="rail_distribution"
       resistance="0ohm"
       footprint="res0402"
-      pcbX={-4.2}
-      pcbY={13}
+      pcbX={-4.8}
+      pcbY={23.3}
       pcbRotation={90}
       schX={-8}
       schY={0}
@@ -413,7 +410,7 @@ export const BOOST_CC2564MODA = () => (
       pinCount={2}
       pitch="2.54mm"
       gender="unpopulated"
-      pcbX={2}
+      pcbX={2.6}
       pcbY={23.3}
       pcbRotation={90}
       schX={-3}
@@ -425,8 +422,8 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="rail_distribution"
       resistance="0ohm"
       footprint="res0402"
-      pcbX={2}
-      pcbY={18}
+      pcbX={0.2}
+      pcbY={23.3}
       pcbRotation={90}
       schX={-3}
       schY={0}
@@ -450,8 +447,8 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="rail_distribution"
       resistance="0ohm"
       footprint="res0402"
-      pcbX={8.2}
-      pcbY={18}
+      pcbX={5.8}
+      pcbY={23.3}
       pcbRotation={90}
       schX={3}
       schY={0}
@@ -463,7 +460,7 @@ export const BOOST_CC2564MODA = () => (
       pinCount={2}
       pitch="2.54mm"
       gender="unpopulated"
-      pcbX={14.4}
+      pcbX={13.2}
       pcbY={23.3}
       pcbRotation={90}
       schX={8}
@@ -475,8 +472,8 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="rail_distribution"
       resistance="0ohm"
       footprint="res0402"
-      pcbX={14.4}
-      pcbY={18}
+      pcbX={10.8}
+      pcbY={23.3}
       pcbRotation={90}
       schX={8}
       schY={0}
@@ -488,8 +485,8 @@ export const BOOST_CC2564MODA = () => (
       pinCount={2}
       pitch="2.54mm"
       gender="unpopulated"
-      pcbX={20.6}
-      pcbY={25.5}
+      pcbX={18.2}
+      pcbY={23.3}
       pcbRotation={90}
       schX={13}
       schY={2}
@@ -500,8 +497,8 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="rail_distribution"
       resistance="0ohm"
       footprint="res0402"
-      pcbX={19.5}
-      pcbY={18}
+      pcbX={15.8}
+      pcbY={23.3}
       pcbRotation={90}
       schX={13}
       schY={0}
@@ -514,7 +511,7 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="power_input"
       resistance="1kohm"
       footprint="res0603"
-      pcbX={-15}
+      pcbX={-14.2}
       pcbY={25}
       schX={1}
       schY={-3.5}
@@ -525,12 +522,11 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="power_input"
       color="red"
       footprint="led0603"
-      pcbX={-11.2}
+      pcbX={-12.5}
       pcbY={20.5}
       pcbRotation={90}
       schX={3.5}
       schY={-3.5}
-      schRotation={180}
       connections={{ pin2: "net.PWR_LED_A", pin1: "net.GND" }}
     />
     <SKRPACE010
@@ -549,10 +545,9 @@ export const BOOST_CC2564MODA = () => (
       resistance="10kohm"
       footprint="res0402"
       pcbX={21.6}
-      pcbY={21.5}
+      pcbY={26}
       schX={6}
-      schY={3.5}
-      schRotation={180}
+      schY={8.5}
       connections={{ pin1: "net.NSHUTD_SWITCH", pin2: "net.GND" }}
     />
     <capacitor
@@ -564,7 +559,6 @@ export const BOOST_CC2564MODA = () => (
       pcbY={25}
       schX={12}
       schY={8.5}
-      schOrientation="vertical"
       connections={{ pin1: "net.NSHUTD_SWITCH", pin2: "net.GND" }}
     />
     <resistor
@@ -596,7 +590,7 @@ export const BOOST_CC2564MODA = () => (
       footprint="res0603"
       pcbX={-3.6}
       pcbY={15.2}
-      schX={1.5}
+      schX={0.5}
       schY={3.5}
       connections={{ pin1: "net.STATUS_ENABLE", pin2: "net.STATUS_LED_A" }}
     />
@@ -609,7 +603,6 @@ export const BOOST_CC2564MODA = () => (
       pcbY={15.2}
       schX={3}
       schY={3.5}
-      schRotation={180}
       connections={{ pin2: "net.STATUS_LED_A", pin1: "net.GND" }}
     />
 
@@ -658,7 +651,6 @@ export const BOOST_CC2564MODA = () => (
       pcbY={5.3}
       schX={-7}
       schY={-3.5}
-      schOrientation="vertical"
       connections={{ pin1: "net.VT_3V3", pin2: "net.GND" }}
     />
     <capacitor
@@ -670,7 +662,6 @@ export const BOOST_CC2564MODA = () => (
       pcbY={2.7}
       schX={-3}
       schY={-3.5}
-      schOrientation="vertical"
       connections={{ pin1: "net.VT_1V8", pin2: "net.GND" }}
     />
     <resistor
@@ -807,7 +798,6 @@ export const BOOST_CC2564MODA = () => (
       pcbY={-7.4}
       schX={4}
       schY={-3.5}
-      schOrientation="vertical"
       connections={{ pin1: "net.VT_1V8", pin2: "net.GND" }}
     />
     <capacitor
@@ -819,7 +809,6 @@ export const BOOST_CC2564MODA = () => (
       pcbY={-8.5}
       schX={7}
       schY={-3.5}
-      schOrientation="vertical"
       connections={{ pin1: "net.VT_3V3", pin2: "net.GND" }}
     />
     <resistor
@@ -881,7 +870,7 @@ export const BOOST_CC2564MODA = () => (
     <TXS0102DCUR
       name="U4"
       schSheetName="shutdown_debug"
-      pcbX={5.6}
+      pcbX={7.4}
       pcbY={-5.1}
       pcbRotation={90}
       schX={6.5}
@@ -917,7 +906,6 @@ export const BOOST_CC2564MODA = () => (
       pcbY={-2}
       schX={4}
       schY={-5.5}
-      schOrientation="vertical"
       connections={{ pin1: "net.VT_3V3", pin2: "net.GND" }}
     />
     <capacitor
@@ -929,7 +917,6 @@ export const BOOST_CC2564MODA = () => (
       pcbY={-7.2}
       schX={7}
       schY={-5.5}
-      schOrientation="vertical"
       connections={{ pin1: "net.VT_1V8", pin2: "net.GND" }}
     />
     <pinheader
@@ -940,7 +927,7 @@ export const BOOST_CC2564MODA = () => (
       gender="male"
       pcbX={8.8}
       pcbY={9}
-      schX={-1}
+      schX={0}
       schY={4}
       connections={{
         pin1: "net.TX_DBG_3V3",
@@ -1014,7 +1001,6 @@ export const BOOST_CC2564MODA = () => (
       pcbY={-14.3}
       schX={-2}
       schY={-1}
-      schOrientation="vertical"
       connections={{ pin1: "net.CK_1V8", pin2: "net.GND" }}
     />
     <CC2564MODACMOG
@@ -1025,7 +1011,6 @@ export const BOOST_CC2564MODA = () => (
       pcbRotation={-90}
       schX={8}
       schY={1}
-      schHeight={3.6}
       connections={{
         HCI_CTS: "net.HCI_CTS_1V8",
         HCI_TX: "net.HCI_TX_1V8",
@@ -1069,7 +1054,6 @@ export const BOOST_CC2564MODA = () => (
       pcbY={-20.1}
       schX={4}
       schY={-3}
-      schOrientation="vertical"
       connections={{ pin1: "net.CC_3V3", pin2: "net.GND" }}
     />
     <capacitor
@@ -1077,11 +1061,10 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="module_clock"
       capacitance="100nF"
       footprint="cap0402"
-      pcbX={14}
+      pcbX={13}
       pcbY={-21.2}
       schX={8}
       schY={-3}
-      schOrientation="vertical"
       connections={{ pin1: "net.CC_1V8", pin2: "net.GND" }}
     />
     <testpoint
