@@ -1,6 +1,6 @@
 import "tscircuit";
 import { CC2564MODACMOG } from "./imports/CC2564MODACMOG.circuit";
-import { SKRPACE010 } from "./imports/SKRPACE010.circuit";
+import { KAN0616_0751B_CL15 } from "./imports/KAN0616_0751B_CL15.circuit";
 import { SlowClockOscillator } from "./imports/SlowClockOscillator.circuit";
 import { TLV71718PDQNR } from "./imports/TLV71718PDQNR.circuit";
 import { TPS73533DRBR } from "./imports/TPS73533DRBR.circuit";
@@ -199,7 +199,7 @@ export const BOOST_CC2564MODA = () => (
     <keepout
       shape="rect"
       pcbX={5.75}
-      pcbY={-23.7}
+      pcbY={-25}
       width="5.8mm"
       height="4.8mm"
       layers={["top", "inner1", "inner2", "bottom"]}
@@ -689,7 +689,7 @@ export const BOOST_CC2564MODA = () => (
       schY={-3.5}
       connections={{ pin1: "net.PWR_LED_A", pin2: "net.GND" }}
     />
-    <SKRPACE010
+    <KAN0616_0751B_CL15
       name="SW1"
       schSheetName="shutdown_debug"
       pcbX={24.75}
@@ -1195,7 +1195,7 @@ export const BOOST_CC2564MODA = () => (
       name="U1"
       schSheetName="module_clock"
       pcbX={5.75}
-      pcbY={-19.1}
+      pcbY={-20.6}
       pcbRotation={-90}
       schX={8}
       schY={1}
