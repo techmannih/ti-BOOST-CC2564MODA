@@ -454,9 +454,9 @@ export const BOOST_CC2564MODA = () => (
         pin2: "BP_3V3",
         pin3: "LDO_3V3",
       }}
-      footprint="pinrow3_p2.54mm_pinlabelorthogonal_pinlabelverticallyinverted_pinlabeltextalignright"
+      footprint="pinrow3_p2.54mm_female_pinlabelorthogonal_pinlabelverticallyinverted_pinlabeltextalignright"
       pitch="2.54mm"
-      gender="male"
+      gender="female"
       showSilkscreenPinLabels
       pcbX={-9.1}
       pcbY={14}
@@ -1024,9 +1024,9 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="pcm_audio"
       pinCount={3}
       pcbPinLabels={{ pin1: "BMDO", pin2: "CPDO", pin3: "BADI" }}
-      footprint="pinrow3_p2.54mm_pinlabelorthogonal_pinlabelverticallyinverted_pinlabeltextalignright"
+      footprint="pinrow3_p2.54mm_female_pinlabelorthogonal_pinlabelverticallyinverted_pinlabeltextalignright"
       pitch="2.54mm"
-      gender="male"
+      gender="female"
       showSilkscreenPinLabels
       pcbX={-11}
       pcbY={-10.4}
@@ -1044,11 +1044,12 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="pcm_audio"
       pinCount={3}
       pcbPinLabels={{ pin1: "BADO", pin2: "CPDI", pin3: "BMDI" }}
-      footprint="pinrow3_p2.54mm_pinlabelorthogonal_pinlabeltextalignleft"
+      footprint="pinrow3_p2.54mm_female_pinlabelorthogonal_pinlabeltextalignright"
       pitch="2.54mm"
-      gender="male"
+      gender="female"
       showSilkscreenPinLabels
       pcbX={-11}
+      pcbRotation={180}
       pcbY={-14}
       schX={12}
       schY={-2}
@@ -1120,8 +1121,9 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="shutdown_debug"
       pinCount={3}
       pcbPinLabels={{ pin1: "TX_DBG", pin2: "BURTS", pin3: "U_CTS2" }}
+      footprint="pinrow3_p2.54mm_female"
       pitch="2.54mm"
-      gender="male"
+      gender="female"
       showSilkscreenPinLabels
       pcbX={8.65}
       pcbY={8.6}
@@ -1138,9 +1140,9 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="shutdown_debug"
       pinCount={3}
       pcbPinLabels={{ pin1: "nS1", pin2: "nSHUTD", pin3: "nS2" }}
-      footprint="pinrow3_p2.54mm"
+      footprint="pinrow3_p2.54mm_female"
       pitch="2.54mm"
-      gender="male"
+      gender="female"
       showSilkscreenPinLabels
       pcbX={12.5}
       pcbY={-5.5}
