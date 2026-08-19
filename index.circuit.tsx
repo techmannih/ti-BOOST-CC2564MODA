@@ -189,24 +189,8 @@ export const BOOST_CC2564MODA = () => (
       pcbX={-15}
       pcbY={-23.25}
     />
-    <silkscreentext
-      text="WCS007-E1"
-      fontSize="1.9mm"
-      pcbX={-19.4}
-      pcbY={-26}
-    />
-    <silkscreentext
-      text="For evaluation only:"
-      fontSize="0.9mm"
-      pcbX={20.4}
-      pcbY={-24.8}
-    />
-    <silkscreentext
-      text="not FCC approved for resale."
-      fontSize="0.76mm"
-      pcbX={20.2}
-      pcbY={-26.15}
-    />
+
+
     {/* Reference designators are positioned independently so rotated parts stay readable. */}
     {/* The reference rail jumpers have a 2.54 mm vertical pitch, a round
         upper pad, a square lower pin-1 pad, and a rectangular silk outline. */}
