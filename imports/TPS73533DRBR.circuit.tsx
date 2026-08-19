@@ -127,6 +127,13 @@ export const TPS73533DRBR = (props: ChipProps<typeof tps735PinLabels>) => {
             shape="polygon"
           />
           <silkscreenrect pcbX={0} pcbY={0} width="3.048mm" height="3.048mm" />
+          <silkscreentext
+            text="{NAME}"
+            pcbX="-0.000254mm"
+            pcbY="2.821434mm"
+            anchorAlignment="center"
+            fontSize="1mm"
+          />
           <courtyardoutline
             outline={[
               { x: -1.964754, y: 2.071434 },

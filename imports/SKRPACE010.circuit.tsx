@@ -49,6 +49,13 @@ export const SKRPACE010 = (props: ChipProps<typeof powerButtonPinLabels>) => (
           shape="rect"
         />
         <silkscreenrect pcbX={0} pcbY={0} width="4.4mm" height="3.1mm" />
+        <silkscreentext
+          text="{NAME}"
+          pcbX="0.0127mm"
+          pcbY="2.6256mm"
+          anchorAlignment="center"
+          fontSize="1mm"
+        />
         <courtyardoutline
           outline={[
             { x: -2.8662, y: 1.8756 },

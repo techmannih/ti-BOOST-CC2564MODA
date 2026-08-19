@@ -61,6 +61,13 @@ export const SlowClockOscillator = (
           shape="rect"
         />
         <silkscreenrect pcbX={0} pcbY={0} width="3.4mm" height="2.7mm" />
+        <silkscreentext
+          text="{NAME}"
+          pcbX="0mm"
+          pcbY="2.397mm"
+          anchorAlignment="center"
+          fontSize="1mm"
+        />
         <courtyardoutline
           outline={[
             { x: -2.0534, y: 1.647 },

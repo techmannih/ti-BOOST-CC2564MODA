@@ -85,6 +85,13 @@ export const TLV71718PDQNR = (props: ChipProps<typeof tlv717PinLabels>) => {
             shape="rect"
           />
           <silkscreenrect pcbX={0} pcbY={0} width="1.1mm" height="1.1mm" />
+          <silkscreentext
+            text="{NAME}"
+            pcbX="-0.1035939mm"
+            pcbY="1.5647944mm"
+            anchorAlignment="center"
+            fontSize="1mm"
+          />
           <courtyardoutline
             outline={[
               { x: -1.0647939, y: 0.8147944 },
