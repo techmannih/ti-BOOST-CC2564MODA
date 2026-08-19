@@ -442,17 +442,7 @@ export const CC2564MODACMOG = (props: ChipProps<typeof pinLabels>) => {
           />
         </footprint>
       }
-      cadModel={{
-        jscad: {
-          type: "colorize",
-          color: [0.3, 0.3, 0.3],
-          shape: {
-            type: "cuboid",
-            size: [14, 7, 1.54],
-          },
-        },
-        zOffsetFromSurface: "0.77mm",
-      }}
+      cadModel={null}
       {...props}
     />
   );

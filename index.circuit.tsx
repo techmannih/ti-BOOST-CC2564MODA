@@ -119,9 +119,7 @@ export const BOOST_CC2564MODA = () => (
     solderMaskColor="green"
     silkscreenColor="white"
     layers={4}
-    // J6/J7 deliberately use the reference board's 3.0 mm row spacing. Their
-    // standard 2.54 mm header courtyards overlap, while the physical pads do not.
-    placementDrcChecksDisabled
+
   >
     <schematicsheet
       name="boosterpack_connectors"
@@ -159,10 +157,31 @@ export const BOOST_CC2564MODA = () => (
       sheetIndex={7}
     />
 
-    {/* Three visible mounting holes. J16 occupies the upper-left corner. */}
-    <hole name="H1" diameter="2.6mm" pcbX={26.85} pcbY={13.45} />
-    <hole name="H2" diameter="2.6mm" pcbX={-26.85} pcbY={-18.15} />
-    <hole name="H3" diameter="2.6mm" pcbX={26.85} pcbY={-18.15} />
+    {/* The reference board uses plated mounting holes with a copper annulus. */}
+    <platedhole
+      name="H1"
+      shape="circle"
+      holeDiameter="2.6mm"
+      outerDiameter="4mm"
+      pcbX={26.85}
+      pcbY={13.45}
+    />
+    <platedhole
+      name="H2"
+      shape="circle"
+      holeDiameter="2.6mm"
+      outerDiameter="4mm"
+      pcbX={-26.85}
+      pcbY={-18.15}
+    />
+    <platedhole
+      name="H3"
+      shape="circle"
+      holeDiameter="2.6mm"
+      outerDiameter="4mm"
+      pcbX={26.85}
+      pcbY={-18.15}
+    />
 
     <silkscreentext
       text="BOOST-CC2564MODA"
@@ -929,7 +948,6 @@ export const BOOST_CC2564MODA = () => (
         VCCB: "net.VT_3V3",
         GND: "net.GND",
         OE: "net.U2_OE",
-        A1: "net.AUD_FSYNC_1V8",
         A2: "net.AUD_CLK_1V8",
         A3: "net.AUD_IN_1V8",
         A4: "net.AUD_OUT_1V8",
@@ -963,7 +981,7 @@ export const BOOST_CC2564MODA = () => (
       schX={4}
       schY={-3.5}
       schOrientation="vertical"
-      connections={{ pin1: "net.VT_1V8", pin2: "net.GND" }}
+      connections={{ pin1: "net.VT_1V8" }}
     />
     <capacitor
       name="C9"
@@ -1010,7 +1028,7 @@ export const BOOST_CC2564MODA = () => (
       gender="male"
       showSilkscreenPinLabels
       pcbX={-11}
-      pcbY={-10.5}
+      pcbY={-10.4}
       pcbRotation={0}
       schX={12}
       schY={0}
@@ -1030,7 +1048,7 @@ export const BOOST_CC2564MODA = () => (
       gender="male"
       showSilkscreenPinLabels
       pcbX={-11}
-      pcbY={-13.5}
+      pcbY={-14}
       schX={12}
       schY={-2}
       connections={{
@@ -1264,6 +1282,27 @@ export const BOOST_CC2564MODA = () => (
       schX={-10}
       schY={-1}
       connections={{ pin1: "net.GND" }}
+    />
+
+    {/* Manual paths keep different-net vias clear of U1.GNDPAD4 and C4.1. */}
+    <trace
+      from=".U2 > .A1"
+      to=".U1 > .AUD_FSYNC"
+      pcbPathRelativeTo=".U2 > .A1"
+      pcbPath={[
+        { x: -0.7, y: 1.42, via: true, toLayer: "bottom" },
+        { x: -7.07, y: 7.03, via: true, toLayer: "inner1" },
+        { x: -12.35, y: 12.2, via: true, toLayer: "top" },
+      ]}
+    />
+    <trace
+      from=".C6 > .pin2"
+      to=".C4 > .pin2"
+      pcbPathRelativeTo=".C6 > .pin2"
+      pcbPath={[
+        { x: -0.5, y: -3.1, via: true, toLayer: "inner2" },
+        { x: -0.5, y: -4.6, via: true, toLayer: "top" },
+      ]}
     />
   </board>
 );
