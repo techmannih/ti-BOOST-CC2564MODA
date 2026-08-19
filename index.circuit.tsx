@@ -757,7 +757,7 @@ export const BOOST_CC2564MODA = () => (
       footprint="res0402"
       pcbX={-1.65}
       pcbY={11.85}
-      schX={-2}
+      schX={-2.4}
       schY={3.5}
       connections={{ pin1: "net.NSHUTD_3V3", pin2: "net.STATUS_ENABLE" }}
     />
@@ -768,7 +768,7 @@ export const BOOST_CC2564MODA = () => (
       footprint="res0603"
       pcbX={-3.2}
       pcbY={13.65}
-      schX={1.46}
+      schX={1.86}
       schY={3.5}
       connections={{ pin1: "net.STATUS_ENABLE", pin2: "net.STATUS_LED_A" }}
     />
@@ -948,6 +948,7 @@ export const BOOST_CC2564MODA = () => (
         VCCB: "net.VT_3V3",
         GND: "net.GND",
         OE: "net.U2_OE",
+        A1: "net.AUD_FSYNC_1V8",
         A2: "net.AUD_CLK_1V8",
         A3: "net.AUD_IN_1V8",
         A4: "net.AUD_OUT_1V8",
@@ -981,7 +982,7 @@ export const BOOST_CC2564MODA = () => (
       schX={4}
       schY={-3.5}
       schOrientation="vertical"
-      connections={{ pin1: "net.VT_1V8" }}
+      connections={{ pin1: "net.VT_1V8", pin2: "net.GND" }}
     />
     <capacitor
       name="C9"
@@ -1284,26 +1285,6 @@ export const BOOST_CC2564MODA = () => (
       connections={{ pin1: "net.GND" }}
     />
 
-    {/* Manual paths keep different-net vias clear of U1.GNDPAD4 and C4.1. */}
-    <trace
-      from=".U2 > .A1"
-      to=".U1 > .AUD_FSYNC"
-      pcbPathRelativeTo=".U2 > .A1"
-      pcbPath={[
-        { x: -0.7, y: 1.42, via: true, toLayer: "bottom" },
-        { x: -7.07, y: 7.03, via: true, toLayer: "inner1" },
-        { x: -12.35, y: 12.2, via: true, toLayer: "top" },
-      ]}
-    />
-    <trace
-      from=".C6 > .pin2"
-      to=".C4 > .pin2"
-      pcbPathRelativeTo=".C6 > .pin2"
-      pcbPath={[
-        { x: -0.5, y: -3.1, via: true, toLayer: "inner2" },
-        { x: -0.5, y: -4.6, via: true, toLayer: "top" },
-      ]}
-    />
   </board>
 );
 
