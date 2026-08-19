@@ -27,9 +27,9 @@ connectivity was reconstructed from the visible routing and TI documentation.
 
 ## BoosterPack header pinout
 
-`J1/J3` is one physical 2x10 female header. The combined component uses logical
-pin numbers 1-20; the PCB silkscreen retains the reference board's signal
-abbreviations.
+`J1/J3` is one physical 2x10 female header. Its schematic and PCB ports retain
+TI's global BoosterPack numbering: J1 is pins 1-10 and J3 is pins 21-30. The
+PCB silkscreen retains the reference board's signal abbreviations.
 
 | Pin | PCB label | Connected signal |
 | --: | --------- | ---------------- |
@@ -43,28 +43,23 @@ abbreviations.
 | 8 | `NC` | Not connected |
 | 9 | `NC` | Not connected |
 | 10 | `NC` | Not connected |
-| 11 | `5V` | `LP_5V` |
-| 12 | `GND` | Common ground |
-| 13 | `NC` | Not connected |
-| 14 | `NC` | Not connected |
-| 15 | `NC` | Not connected |
-| 16 | `NC` | Not connected |
-| 17 | `BAFS` | PCM/audio frame sync |
-| 18 | `BACK` | PCM/audio clock |
-| 19 | `BADO` | BoosterPack audio data-out/in route |
-| 20 | `BADI` | BoosterPack audio data-in/out route |
+| 21 | `5V` | `LP_5V` |
+| 22 | `GND` | Common ground |
+| 23 | `NC` | Not connected |
+| 24 | `NC` | Not connected |
+| 25 | `NC` | Not connected |
+| 26 | `NC` | Not connected |
+| 27 | `BAFS` | PCM/audio frame sync |
+| 28 | `BACK` | PCM/audio clock |
+| 29 | `BADO` | BoosterPack audio data-out/in route |
+| 30 | `BADI` | BoosterPack audio data-in/out route |
 
-`J2/J4` is the second physical 2x10 female header. Empty PCB labels are
-intentional and represent reference-board pins that are not connected in this
-design.
+`J2/J4` is the second physical 2x10 female header. J2 is pins 11-20 and J4 is
+pins 31-40. Empty PCB labels are intentional and represent reference-board pins
+that are not connected in this design.
 
 | Pin | PCB label | Connected signal |
 | --: | --------- | ---------------- |
-| 1-5 | `NC` | Not connected |
-| 6 | `BnSD2` | Bluetooth shutdown route 1 |
-| 7-8 | `NC` | Not connected |
-| 9 | `BnSD1` | Bluetooth shutdown route 2 |
-| 10 | `GND` | Common ground |
 | 11-12 | `NC` | Not connected |
 | 13 | `BURT2` | UART RTS route 2 |
 | 14 | `BUCT2` | CTS2 / TX debug selectable route |
@@ -72,6 +67,11 @@ design.
 | 16 | `BURT1` | UART RTS route 1 |
 | 17 | `BUCT1` | UART CTS route 1 |
 | 18-20 | `NC` | Not connected |
+| 31-35 | `NC` | Not connected |
+| 36 | `BnSD2` | Bluetooth shutdown route 1 |
+| 37-38 | `NC` | Not connected |
+| 39 | `BnSD1` | Bluetooth shutdown route 2 |
+| 40 | `GND` | Common ground |
 
 ## Power architecture and rail configuration
 
