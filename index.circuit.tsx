@@ -1,9 +1,13 @@
 import "tscircuit";
+import { DB128V_5_08_4P_GN_S } from "./imports/DB128V_5_08_4P_GN_S";
 import { CC2564MODACMOG } from "./imports/CC2564MODACMOG.circuit";
 import { KAN0616_0751B_CL15 } from "./imports/KAN0616_0751B_CL15.circuit";
+import { PJ_327C_4A } from "./imports/PJ_327C_4A";
 import { SlowClockOscillator } from "./imports/SlowClockOscillator.circuit";
 import { TLV71718PDQNR } from "./imports/TLV71718PDQNR.circuit";
+import { TLV320AIC3254IRHBR } from "./imports/TLV320AIC3254IRHBR";
 import { TPS73533DRBR } from "./imports/TPS73533DRBR.circuit";
+import { TPA2012D2RTJR } from "./imports/TPA2012D2RTJR";
 import { TXS0102DCUR } from "./imports/TXS0102DCUR.circuit";
 import { TXS0104EPWR } from "./imports/TXS0104EPWR.circuit";
 import { TXS0108EPWR } from "./imports/TXS0108EPWR.circuit";
@@ -18,8 +22,8 @@ const j1J3PinLabels = {
   pin6: "UART_TX_2",
   pin7: "UART_RX_2",
   pin8: "NC",
-  pin9: "NC",
-  pin10: "NC",
+  pin9: "AUD_SCL",
+  pin10: "AUD_SDA",
   pin11: "5V",
   pin12: "GND",
   pin13: "NC",
@@ -64,8 +68,8 @@ const j1J3PcbPinLabels = {
   pin6: "BUTX2",
   pin7: "BURX2",
   pin8: "",
-  pin9: "",
-  pin10: "",
+  pin9: "ASCL",
+  pin10: "ASDA",
   pin11: "5V",
   pin12: "GND",
   pin13: "",
@@ -102,24 +106,33 @@ const j2J4PcbPinLabels = {
 } as const;
 
 /**
- * BOOST-CC2564MODA / WCS007-E1 placement-faithful reconstruction.
+ * BOOST-CC2564MODA / WCS007-E1 reconstruction with integrated audio output.
  *
- * PCB coordinates were measured proportionally from the supplied front-board
- * photograph. Connectivity follows TI SWRU444 plus the visible board routing.
- * Values explicitly called out as provisional in README.md must be checked
- * against production CAD/BOM before fabrication.
+ * The base-board coordinates were measured from the supplied front-board
+ * photograph. Connectivity follows TI SWRU444 and visible board routing; the
+ * custom codec/amplifier extension follows the manufacturers' reference
+ * circuits. Complete fabrication cautions are documented in README.md.
  */
 export const BOOST_CC2564MODA = () => (
   <board
     name="BOOST_CC2564MODA"
-    width="58.42mm"
+    width="81.21mm"
     height="55.88mm"
-    borderRadius="0.8mm"
+    boardAnchorPosition={{ x: 11.395, y: 0 }}
+    outline={[
+      { x: -28.41, y: 27.94 },
+      { x: 51.2, y: 27.94 },
+      { x: 52, y: 27.14 },
+      { x: 52, y: -27.14 },
+      { x: 51.2, y: -27.94 },
+      { x: -28.41, y: -27.94 },
+      { x: -29.21, y: -27.14 },
+      { x: -29.21, y: 27.14 },
+    ]}
     thickness="1.6mm"
     solderMaskColor="green"
     silkscreenColor="white"
     layers={4}
-
   >
     <schematicsheet
       name="boosterpack_connectors"
@@ -147,15 +160,24 @@ export const BOOST_CC2564MODA = () => (
       sheetIndex={5}
     />
     <schematicsheet
+      name="audio_output"
+      displayName="Codec, Headphone and Speaker Output"
+      sheetIndex={6}
+    />
+    <schematicsheet
       name="shutdown_debug"
       displayName="Shutdown, Status and Debug"
-      sheetIndex={6}
+      sheetIndex={7}
     />
     <schematicsheet
       name="module_clock"
       displayName="CC2564MODA and Slow Clock"
-      sheetIndex={7}
+      sheetIndex={8}
     />
+
+    <schematicsection name="audio_codec" displayName="Audio Codec" />
+    <schematicsection name="headphone_output" displayName="Headphone Output" />
+    <schematicsection name="speaker_output" displayName="Speaker Amplifier" />
 
     {/* The reference board uses plated mounting holes with a copper annulus. */}
     <platedhole
@@ -245,6 +267,8 @@ export const BOOST_CC2564MODA = () => (
         pin4: "net.UART_RX_1",
         pin6: "net.UART_TX_2",
         pin7: "net.UART_RX_2",
+        pin9: "net.AUDIO_I2C_SCL",
+        pin10: "net.AUDIO_I2C_SDA",
         pin11: "net.LP_5V",
         pin12: "net.GND",
         pin17: "net.AUD_FSYNC_HEADER",
@@ -398,7 +422,7 @@ export const BOOST_CC2564MODA = () => (
       pcbX={-25.7}
       pcbY={17}
       pcbRotation={90}
-      schX={-5}
+      schX={-5.7}
       schY={-0.5}
       schOrientation="vertical"
       connections={{ pin1: "net.LDO_INPUT", pin2: "net.GND" }}
@@ -411,7 +435,7 @@ export const BOOST_CC2564MODA = () => (
       pcbX={-23.25}
       pcbY={14.6}
       pcbRotation={90}
-      schX={-2.5}
+      schX={-1.8}
       schY={-2}
       schOrientation="vertical"
       connections={{ pin1: "net.LDO_3V3", pin2: "net.GND" }}
@@ -673,7 +697,7 @@ export const BOOST_CC2564MODA = () => (
       footprint="res0603"
       pcbX={-12}
       pcbY={25.1}
-      schX={1}
+      schX={0.85}
       schY={-3.5}
       connections={{ pin1: "net.BOARD_3V3", pin2: "net.PWR_LED_A" }}
     />
@@ -777,7 +801,6 @@ export const BOOST_CC2564MODA = () => (
       pcbRotation={0}
       schX={-4}
       schY={0}
-      schHeight={2}
       connections={{
         VCCA: "net.VT_1V8",
         VCCB: "net.VT_3V3",
@@ -1043,6 +1066,432 @@ export const BOOST_CC2564MODA = () => (
         pin3: "net.PCM_DOUT_3V3",
       }}
     />
+
+    {/* Integrated audio output: U7 converts the module PCM/I2S stream to
+        analog audio. J17 is a stereo headphone/line output, while U8 drives
+        two 4-ohm or 8-ohm passive speakers through J18. */}
+    <TLV320AIC3254IRHBR
+      name="U7"
+      schSheetName="audio_output"
+      schSectionName="audio_codec"
+      pcbX={35}
+      pcbY={4.5}
+      schX={-5.5}
+      schY={0}
+      connections={{
+        MCLK: "net.AUD_CLK_3V3",
+        BCLK: "net.AUD_CLK_3V3",
+        WCLK: "net.AUD_FSYNC_3V3",
+        DIN: "net.PCM_DOUT_3V3",
+        DOUT: "net.PCM_DIN_3V3",
+        IOVDD: "net.BOARD_3V3",
+        IOVSS: "net.GND",
+        SCL: "net.AUDIO_I2C_SCL",
+        SDA: "net.AUDIO_I2C_SDA",
+        SPI_SELECT: "net.GND",
+        AVSS: "net.GND",
+        REF: "net.CODEC_REF_FILTER",
+        LOL: "net.CODEC_LOL",
+        LOR: "net.CODEC_LOR",
+        AVDD: "net.CODEC_AVDD_FILTER",
+        HPL: "net.CODEC_HPL",
+        LDOIN: "net.BOARD_3V3",
+        HPR: "net.CODEC_HPR",
+        DVSS: "net.GND",
+        DVDD: "net.CODEC_DVDD_FILTER",
+        LDO_SELECT: "net.BOARD_3V3",
+        RESET: "net.CODEC_RESET",
+        EP: "net.GND",
+      }}
+      noConnect={[
+        "SCLK",
+        "MISO",
+        "IN1_L",
+        "IN1_R",
+        "IN2_L",
+        "IN2_R",
+        "MICBIAS",
+        "IN3_L",
+        "IN3_R",
+        "GPIO",
+      ]}
+    />
+    <capacitor
+      name="C16"
+      schSheetName="audio_output"
+      schSectionName="audio_codec"
+      capacitance="100nF"
+      footprint="cap0402"
+      pcbX={28}
+      pcbY={2.5}
+      schX={-11.5}
+      schY={5}
+      schOrientation="vertical"
+      connections={{ pin1: "net.BOARD_3V3", pin2: "net.GND" }}
+    />
+    <capacitor
+      name="C17"
+      schSheetName="audio_output"
+      schSectionName="audio_codec"
+      capacitance="1uF"
+      footprint="cap0603"
+      pcbX={27.5}
+      pcbY={5}
+      schX={-9.8}
+      schY={5}
+      schOrientation="vertical"
+      connections={{ pin1: "net.BOARD_3V3", pin2: "net.GND" }}
+    />
+    <capacitor
+      name="C18"
+      schSheetName="audio_output"
+      schSectionName="audio_codec"
+      capacitance="100nF"
+      footprint="cap0402"
+      pcbX={29}
+      pcbY={9.5}
+      schX={-8.1}
+      schY={5}
+      schOrientation="vertical"
+      connections={{ pin1: "net.BOARD_3V3", pin2: "net.GND" }}
+    />
+    <capacitor
+      name="C19"
+      schSheetName="audio_output"
+      schSectionName="audio_codec"
+      capacitance="1uF"
+      footprint="cap0603"
+      pcbX={32}
+      pcbY={9.5}
+      schX={-6.4}
+      schY={5}
+      schOrientation="vertical"
+      connections={{ pin1: "net.BOARD_3V3", pin2: "net.GND" }}
+    />
+    <capacitor
+      name="C20"
+      schSheetName="audio_output"
+      schSectionName="audio_codec"
+      capacitance="10uF"
+      footprint="cap0805"
+      pcbX={27}
+      pcbY={7.5}
+      schX={-4.7}
+      schY={5}
+      schOrientation="vertical"
+      connections={{ pin1: "net.CODEC_DVDD_FILTER", pin2: "net.GND" }}
+    />
+    <capacitor
+      name="C21"
+      schSheetName="audio_output"
+      schSectionName="audio_codec"
+      capacitance="10uF"
+      footprint="cap0805"
+      pcbX={40.5}
+      pcbY={8.3}
+      schX={-3}
+      schY={5}
+      schOrientation="vertical"
+      connections={{ pin1: "net.CODEC_AVDD_FILTER", pin2: "net.GND" }}
+    />
+    <capacitor
+      name="C22"
+      schSheetName="audio_output"
+      schSectionName="audio_codec"
+      capacitance="10uF"
+      footprint="cap0805"
+      pcbX={39.7}
+      pcbY={4.5}
+      schX={-1.3}
+      schY={5}
+      schOrientation="vertical"
+      connections={{ pin1: "net.CODEC_REF_FILTER", pin2: "net.GND" }}
+    />
+    <resistor
+      name="R27"
+      schSheetName="audio_output"
+      schSectionName="audio_codec"
+      resistance="10kohm"
+      footprint="res0402"
+      pcbX={34.3}
+      pcbY={11}
+      schX={-11.5}
+      schY={-5}
+      connections={{ pin1: "net.BOARD_3V3", pin2: "net.CODEC_RESET" }}
+    />
+    <capacitor
+      name="C23"
+      schSheetName="audio_output"
+      schSectionName="audio_codec"
+      capacitance="100nF"
+      footprint="cap0402"
+      pcbX={36.5}
+      pcbY={0.2}
+      schX={-8.5}
+      schY={-5}
+      schOrientation="vertical"
+      connections={{ pin1: "net.CODEC_RESET", pin2: "net.GND" }}
+    />
+    <resistor
+      name="R28"
+      schSheetName="audio_output"
+      schSectionName="audio_codec"
+      resistance="3.3kohm"
+      footprint="res0402"
+      pcbX={27.5}
+      pcbY={0.5}
+      schX={-5.5}
+      schY={-5}
+      connections={{ pin1: "net.BOARD_3V3", pin2: "net.AUDIO_I2C_SCL" }}
+    />
+    <resistor
+      name="R29"
+      schSheetName="audio_output"
+      schSectionName="audio_codec"
+      resistance="3.3kohm"
+      footprint="res0402"
+      pcbX={27.5}
+      pcbY={-1}
+      schX={-1}
+      schY={-5}
+      connections={{ pin1: "net.BOARD_3V3", pin2: "net.AUDIO_I2C_SDA" }}
+    />
+
+    <capacitor
+      name="C24"
+      schSheetName="audio_output"
+      schSectionName="headphone_output"
+      capacitance="47uF"
+      footprint="cap1206"
+      pcbX={38}
+      pcbY={10.5}
+      schX={-0.58}
+      schY={1.5}
+      schOrientation="vertical"
+      connections={{ pin1: "net.CODEC_HPL", pin2: "net.HEADPHONE_LEFT" }}
+    />
+    <capacitor
+      name="C25"
+      schSheetName="audio_output"
+      schSectionName="headphone_output"
+      capacitance="47uF"
+      footprint="cap1206"
+      pcbX={43}
+      pcbY={10.5}
+      schX={-0.87}
+      schY={-1.5}
+      schOrientation="vertical"
+      connections={{ pin1: "net.CODEC_HPR", pin2: "net.HEADPHONE_RIGHT" }}
+    />
+    <PJ_327C_4A
+      name="J17"
+      schSheetName="audio_output"
+      schSectionName="headphone_output"
+      pcbX={45}
+      pcbY={18}
+      pcbRotation={270}
+      allowOffBoard
+      schX={1.66}
+      schY={0}
+      connections={{
+        SLEEVE: "net.GND",
+        TIP: "net.HEADPHONE_LEFT",
+        RING: "net.HEADPHONE_RIGHT",
+      }}
+      noConnect={["TIP_SWITCH"]}
+    />
+
+    <resistor
+      name="R30"
+      schSheetName="audio_output"
+      schSectionName="speaker_output"
+      resistance="1kohm"
+      footprint="res0402"
+      pcbX={34}
+      pcbY={-0.2}
+      schX={3.5}
+      schY={4}
+      connections={{ pin1: "net.CODEC_LOL", pin2: "net.AMP_LEFT_FILTERED" }}
+    />
+    <resistor
+      name="R31"
+      schSheetName="audio_output"
+      schSectionName="speaker_output"
+      resistance="1kohm"
+      footprint="res0402"
+      pcbX={38.5}
+      pcbY={-0.2}
+      schX={3.5}
+      schY={-4}
+      connections={{ pin1: "net.CODEC_LOR", pin2: "net.AMP_RIGHT_FILTERED" }}
+    />
+    <capacitor
+      name="C26"
+      schSheetName="audio_output"
+      schSectionName="speaker_output"
+      capacitance="1uF"
+      footprint="cap0603"
+      pcbX={34}
+      pcbY={-1.5}
+      schX={5.5}
+      schY={4}
+      schOrientation="vertical"
+      connections={{ pin1: "net.AMP_LEFT_FILTERED", pin2: "net.AMP_LEFT_POS" }}
+    />
+    <capacitor
+      name="C27"
+      schSheetName="audio_output"
+      schSectionName="speaker_output"
+      capacitance="1uF"
+      footprint="cap0603"
+      pcbX={38}
+      pcbY={-1.5}
+      schX={5.5}
+      schY={-4}
+      schOrientation="vertical"
+      connections={{ pin1: "net.AMP_RIGHT_FILTERED", pin2: "net.AMP_RIGHT_POS" }}
+    />
+    <capacitor
+      name="C28"
+      schSheetName="audio_output"
+      schSectionName="speaker_output"
+      capacitance="1uF"
+      footprint="cap0603"
+      pcbX={34}
+      pcbY={-9}
+      schX={7.5}
+      schY={4}
+      schOrientation="vertical"
+      connections={{ pin1: "net.AMP_LEFT_NEG", pin2: "net.GND" }}
+    />
+    <capacitor
+      name="C29"
+      schSheetName="audio_output"
+      schSectionName="speaker_output"
+      capacitance="1uF"
+      footprint="cap0603"
+      pcbX={38}
+      pcbY={-9}
+      schX={7.5}
+      schY={-4}
+      schOrientation="vertical"
+      connections={{ pin1: "net.AMP_RIGHT_NEG", pin2: "net.GND" }}
+    />
+    <resistor
+      name="R32"
+      schSheetName="audio_output"
+      schSectionName="speaker_output"
+      resistance="0ohm"
+      footprint="res1206"
+      pcbX={33}
+      pcbY={-11.5}
+      schX={7}
+      schY={5.8}
+      connections={{ pin1: "net.LDO_INPUT", pin2: "net.AMP_5V" }}
+    />
+    <capacitor
+      name="C30"
+      schSheetName="audio_output"
+      schSectionName="speaker_output"
+      capacitance="100nF"
+      footprint="cap0402"
+      pcbX={36.3}
+      pcbY={-11}
+      schX={9}
+      schY={5.8}
+      schOrientation="vertical"
+      connections={{ pin1: "net.AMP_5V", pin2: "net.GND" }}
+    />
+    <capacitor
+      name="C31"
+      schSheetName="audio_output"
+      schSectionName="speaker_output"
+      capacitance="10uF"
+      footprint="cap0805"
+      pcbX={39}
+      pcbY={-11.5}
+      schX={11}
+      schY={5.8}
+      schOrientation="vertical"
+      connections={{ pin1: "net.AMP_5V", pin2: "net.GND" }}
+    />
+    <TPA2012D2RTJR
+      name="U8"
+      schSheetName="audio_output"
+      schSectionName="speaker_output"
+      pcbX={36}
+      pcbY={-5}
+      schX={8.24}
+      schY={0}
+      connections={{
+        G1: "net.GND",
+        PVDD1: "net.AMP_5V",
+        PGND1: "net.GND",
+        SDL: "net.BOARD_3V3",
+        SDR: "net.BOARD_3V3",
+        AVDD: "net.AMP_5V",
+        PVDD2: "net.AMP_5V",
+        PGND2: "net.GND",
+        G0: "net.GND",
+        INR_POS: "net.AMP_RIGHT_POS",
+        INR_NEG: "net.AMP_RIGHT_NEG",
+        AGND: "net.GND",
+        INL_NEG: "net.AMP_LEFT_NEG",
+        INL_POS: "net.AMP_LEFT_POS",
+        EP: "net.GND",
+      }}
+      noConnect={["NC1", "NC2"]}
+    />
+    <DB128V_5_08_4P_GN_S
+      name="J18"
+      schSheetName="audio_output"
+      schSectionName="speaker_output"
+      pcbX={46}
+      pcbY={-16.5}
+      pcbRotation={90}
+      schX={13.2}
+      schY={0}
+    />
+    <trace
+      from=".U8 > .OUTL_POS"
+      to=".J18 > .SPK_L_POS"
+      thickness="0.6mm"
+    />
+    <trace
+      from=".U8 > .OUTL_NEG"
+      to=".J18 > .SPK_L_NEG"
+      thickness="0.6mm"
+    />
+    <trace
+      from=".U8 > .OUTR_POS"
+      to=".J18 > .SPK_R_POS"
+      thickness="0.6mm"
+    />
+    <trace
+      from=".U8 > .OUTR_NEG"
+      to=".J18 > .SPK_R_NEG"
+      thickness="0.6mm"
+    />
+    <silkscreentext
+      text="AUDIO"
+      fontSize="1.6mm"
+      pcbX={43}
+      pcbY={25.5}
+    />
+    <silkscreentext
+      text="HEADPHONE"
+      fontSize="1mm"
+      pcbX={44}
+      pcbY={11.8}
+    />
+    <silkscreentext
+      text="L+ L- R+ R-"
+      fontSize="0.9mm"
+      pcbX={50.5}
+      pcbY={-16.5}
+      pcbRotation={90}
+    />
+
     {/* U4: nSHUTD / TX_DBG translator and selectors. */}
     <TXS0102DCUR
       name="U4"
