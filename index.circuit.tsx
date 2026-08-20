@@ -457,6 +457,11 @@ export const BOOST_CC2564MODA = () => (
       name="J10"
       schSheetName="power_input"
       pinCount={3}
+      pinLabels={{
+        pin1: "LP_3V3",
+        pin2: "BOARD_3V3",
+        pin3: "LDO_3V3",
+      }}
       pcbPinLabels={{
         pin1: "LP_3V3",
         pin2: "BP_3V3",
@@ -524,6 +529,7 @@ export const BOOST_CC2564MODA = () => (
       name="J9"
       schSheetName="rail_distribution"
       pinCount={2}
+      pinLabels={{ pin1: "BOARD_3V3", pin2: "LIN_3V3" }}
       pcbPinLabels={{ pin1: "", pin2: "LIN3V3" }}
       footprint="pinrow2_rows2_cols1_p2.54mm_pin1location(rightside,bottom)"
       pitch="2.54mm"
@@ -552,6 +558,7 @@ export const BOOST_CC2564MODA = () => (
       name="J15"
       schSheetName="rail_distribution"
       pinCount={2}
+      pinLabels={{ pin1: "BOARD_3V3", pin2: "VT_3V3" }}
       pcbPinLabels={{ pin1: "", pin2: "VT3V3" }}
       footprint="pinrow2_rows2_cols1_p2.54mm_pin1location(rightside,bottom)"
       pitch="2.54mm"
@@ -580,6 +587,7 @@ export const BOOST_CC2564MODA = () => (
       name="J11"
       schSheetName="rail_distribution"
       pinCount={2}
+      pinLabels={{ pin1: "BOARD_3V3", pin2: "CC_3V3" }}
       pcbPinLabels={{ pin1: "", pin2: "CC3V3" }}
       footprint="pinrow2_rows2_cols1_p2.54mm_pin1location(rightside,bottom)"
       pitch="2.54mm"
@@ -608,6 +616,7 @@ export const BOOST_CC2564MODA = () => (
       name="J14"
       schSheetName="rail_distribution"
       pinCount={2}
+      pinLabels={{ pin1: "V1_8", pin2: "VT_1V8" }}
       pcbPinLabels={{ pin1: "", pin2: "VT1V8" }}
       footprint="pinrow2_rows2_cols1_p2.54mm_pin1location(rightside,bottom)"
       pitch="2.54mm"
@@ -636,6 +645,7 @@ export const BOOST_CC2564MODA = () => (
       name="J13"
       schSheetName="rail_distribution"
       pinCount={2}
+      pinLabels={{ pin1: "V1_8", pin2: "CK_1V8" }}
       pcbPinLabels={{ pin1: "", pin2: "CK1V8" }}
       footprint="pinrow2_rows2_cols1_p2.54mm_pin1location(rightside,bottom)"
       pitch="2.54mm"
@@ -664,6 +674,7 @@ export const BOOST_CC2564MODA = () => (
       name="J12"
       schSheetName="rail_distribution"
       pinCount={2}
+      pinLabels={{ pin1: "V1_8", pin2: "CC_1V8" }}
       pcbPinLabels={{ pin1: "", pin2: "CC1V8" }}
       footprint="pinrow2_rows2_cols1_p2.54mm_pin1location(rightside,bottom)"
       pitch="2.54mm"
@@ -766,7 +777,7 @@ export const BOOST_CC2564MODA = () => (
       pcbX={-1.65}
       pcbY={11.85}
       schX={-2.4}
-      schY={3.5}
+      schY={3.275}
       connections={{ pin1: "net.NSHUTD_3V3", pin2: "net.STATUS_ENABLE" }}
     />
     <resistor
@@ -776,7 +787,7 @@ export const BOOST_CC2564MODA = () => (
       footprint="res0603"
       pcbX={-3.2}
       pcbY={13.65}
-      schX={1.86}
+      schX={2.135}
       schY={3.5}
       connections={{ pin1: "net.STATUS_ENABLE", pin2: "net.STATUS_LED_A" }}
     />
@@ -947,7 +958,7 @@ export const BOOST_CC2564MODA = () => (
       schSheetName="pcm_audio"
       pcbX={-4.25}
       pcbY={-4.15}
-      pcbRotation={180}
+      pcbRotation={0}
       schX={5}
       schY={0}
       connections={{
@@ -1030,6 +1041,11 @@ export const BOOST_CC2564MODA = () => (
       name="J7"
       schSheetName="pcm_audio"
       pinCount={3}
+      pinLabels={{
+        pin1: "PCM_DOUT_3V3",
+        pin2: "AUD_DOUTIN",
+        pin3: "PCM_DIN_3V3",
+      }}
       pcbPinLabels={{ pin1: "BMDO", pin2: "CPDO", pin3: "BADI" }}
       footprint="pinrow3_p2.54mm_female_pinlabelorthogonal_pinlabelverticallyinverted_pinlabeltextalignright"
       pitch="2.54mm"
@@ -1050,6 +1066,11 @@ export const BOOST_CC2564MODA = () => (
       name="J6"
       schSheetName="pcm_audio"
       pinCount={3}
+      pinLabels={{
+        pin1: "PCM_DIN_3V3",
+        pin2: "AUD_DINOUT",
+        pin3: "PCM_DOUT_3V3",
+      }}
       pcbPinLabels={{ pin1: "BADO", pin2: "CPDI", pin3: "BMDI" }}
       footprint="pinrow3_p2.54mm_female_pinlabelorthogonal_pinlabeltextalignright"
       pitch="2.54mm"
@@ -1553,6 +1574,11 @@ export const BOOST_CC2564MODA = () => (
       name="J8"
       schSheetName="shutdown_debug"
       pinCount={3}
+      pinLabels={{
+        pin1: "TX_DBG",
+        pin2: "CTS2_OR_TXDBG",
+        pin3: "UART_CTS_2",
+      }}
       pcbPinLabels={{ pin1: "TX_DBG", pin2: "BURTS", pin3: "U_CTS2" }}
       footprint="pinrow3_p2.54mm_female"
       pitch="2.54mm"
@@ -1560,7 +1586,7 @@ export const BOOST_CC2564MODA = () => (
       showSilkscreenPinLabels
       pcbX={8.65}
       pcbY={8.6}
-      schX={-0.96}
+      schX={-1.26}
       schY={4}
       connections={{
         pin1: "net.TX_DBG_3V3",
@@ -1572,6 +1598,11 @@ export const BOOST_CC2564MODA = () => (
       name="J5"
       schSheetName="shutdown_debug"
       pinCount={3}
+      pinLabels={{
+        pin1: "BT_nSHUTD_1",
+        pin2: "NSHUTD_3V3",
+        pin3: "BT_nSHUTD_2",
+      }}
       pcbPinLabels={{ pin1: "nS1", pin2: "nSHUTD", pin3: "nS2" }}
       footprint="pinrow3_p2.54mm_female"
       pitch="2.54mm"
