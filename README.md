@@ -150,11 +150,11 @@ do not.
 ## Verification and manufacturing status
 
 The current source type-checks; electrical netlist, schematic placement, and PCB
-placement checks pass; the autorouter completes 234 traces with zero jumpers and
-zero routing errors; and the PCB bitmap geometry check reports no shorts. The
+placement checks pass; the generated board contains 235 PCB traces with zero
+routing errors; and the PCB bitmap geometry check reports no shorts. The
 key PCM clock net was also resolved by the trace-length analyzer.
 
-The generator still reports 33 legacy child-component overlap notices from the
+The generator still reports 44 legacy child-component overlap notices from the
 dense original reconstruction, while the dedicated final PCB placement check
 reports zero errors and warnings. That does not waive fabrication review.
 Before ordering, confirm every connector's mating side and pin-1 orientation,
@@ -169,15 +169,15 @@ debugging design, not as an unconditional production-release package.
 
 ```sh
 bun install
-npm run typecheck
-npx tsci check netlist
-npx tsci check schematic-placement
-npx tsci check placement
-npx tsci check routing-difficulty
-npx tsci check trace-length net.AUD_CLK_3V3 dist/index/circuit.json
-npx tsci check shorts --mode pcb dist/index/circuit.json
-npm run snapshot:update
-npx tsci build index.circuit.tsx --pcb-png --schematic-png --ignore-warnings
+bun run typecheck
+bunx tsci check netlist
+bunx tsci check schematic-placement
+bunx tsci check placement
+bunx tsci check routing-difficulty
+bunx tsci build index.circuit.tsx --pcb-png --schematic-png --autorouter-timeout 8m
+bunx tsci check trace-length net.AUD_CLK_3V3 dist/index/circuit.json
+bunx tsci check shorts --mode pcb dist/index/circuit.json
+bun run snapshot:update
 ```
 
-Use `npm run dev` for the interactive tscircuit PCB, schematic, and 3D viewer.
+Use `bun run dev` for the interactive tscircuit PCB, schematic, and 3D viewer.
