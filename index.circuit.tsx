@@ -326,8 +326,8 @@ export const BOOST_CC2564MODA = () => (
       pcbY={24.15}
       pcbRotation={180}
       allowOffBoard
-      schX={-12}
-      schY={4}
+      schX={-10.5}
+      schY={1.5}
       schHeight={1}
       connections={{
         VBUS: "net.USB_5V",
@@ -348,8 +348,8 @@ export const BOOST_CC2564MODA = () => (
       footprint="res0603"
       pcbX={-25.55}
       pcbY={20}
-      schX={-10}
-      schY={8.5}
+      schX={-9.5}
+      schY={4.5}
       connections={{ pin1: "net.USB_D_N", pin2: "net.USB_D_N_FILTERED" }}
     />
     <inductor
@@ -360,7 +360,7 @@ export const BOOST_CC2564MODA = () => (
       pcbX={-20.55}
       pcbY={20}
       schX={-4}
-      schY={8.5}
+      schY={4.5}
       connections={{ pin1: "net.USB_D_P", pin2: "net.USB_D_P_FILTERED" }}
     />
     <diode
@@ -371,8 +371,8 @@ export const BOOST_CC2564MODA = () => (
       pcbX={-15.25}
       pcbY={19.8}
       pcbRotation={270}
-      schX={-7}
-      schY={2.5}
+      schX={-6}
+      schY={2}
       connections={{ pin1: "net.USB_5V", pin2: "net.LDO_INPUT" }}
     />
     <diode
@@ -383,8 +383,8 @@ export const BOOST_CC2564MODA = () => (
       pcbX={-15.15}
       pcbY={12.55}
       pcbRotation={90}
-      schX={-7}
-      schY={0.5}
+      schX={-6}
+      schY={0}
       connections={{ pin1: "net.LP_5V", pin2: "net.LDO_INPUT" }}
     />
     <TPS73533DRBR
@@ -393,8 +393,8 @@ export const BOOST_CC2564MODA = () => (
       pcbX={-20.35}
       pcbY={17.2}
       pcbRotation={90}
-      schX={-2.5}
-      schY={1.5}
+      schX={-1.5}
+      schY={1}
       connections={{
         IN: "net.LDO_INPUT",
         OUT: "net.LDO_3V3",
@@ -422,8 +422,8 @@ export const BOOST_CC2564MODA = () => (
       pcbX={-25.7}
       pcbY={17}
       pcbRotation={90}
-      schX={-5.7}
-      schY={-0.5}
+      schX={-4.7}
+      schY={-1}
       schOrientation="vertical"
       connections={{ pin1: "net.LDO_INPUT", pin2: "net.GND" }}
     />
@@ -435,8 +435,8 @@ export const BOOST_CC2564MODA = () => (
       pcbX={-23.25}
       pcbY={14.6}
       pcbRotation={90}
-      schX={-1.8}
-      schY={-2}
+      schX={-0.8}
+      schY={-2.5}
       schOrientation="vertical"
       connections={{ pin1: "net.LDO_3V3", pin2: "net.GND" }}
     />
@@ -448,8 +448,8 @@ export const BOOST_CC2564MODA = () => (
       pcbX={-17.45}
       pcbY={18.2}
       pcbRotation={90}
-      schX={0}
-      schY={-2}
+      schX={1.0}
+      schY={-2.5}
       schOrientation="vertical"
       connections={{ pin1: "net.LDO_NR", pin2: "net.GND" }}
     />
@@ -474,8 +474,8 @@ export const BOOST_CC2564MODA = () => (
       pcbX={-9.1}
       pcbY={14}
       pcbRotation={180}
-      schX={3.5}
-      schY={2}
+      schX={4.5}
+      schY={1.5}
       connections={{
         pin1: "net.LP_3V3",
         pin2: "net.BOARD_3V3",
@@ -488,8 +488,8 @@ export const BOOST_CC2564MODA = () => (
       pcbX={-7.45}
       pcbY={17.15}
       pcbRotation={180}
-      schX={8}
-      schY={1.5}
+      schX={9}
+      schY={1}
       connections={{
         IN: "net.LIN_3V3",
         EN: "net.LIN_3V3",
@@ -505,8 +505,8 @@ export const BOOST_CC2564MODA = () => (
       footprint="cap0402"
       pcbX={-10.25}
       pcbY={16.65}
-      schX={5.5}
-      schY={-0.5}
+      schX={6.5}
+      schY={-1}
       schOrientation="vertical"
       connections={{ pin1: "net.LIN_3V3", pin2: "net.GND" }}
     />
@@ -518,8 +518,8 @@ export const BOOST_CC2564MODA = () => (
       pcbX={-4.65}
       pcbY={16.75}
       pcbRotation={90}
-      schX={10}
-      schY={-0.5}
+      schX={11}
+      schY={-1}
       schOrientation="vertical"
       connections={{ pin1: "net.V1_8", pin2: "net.GND" }}
     />
@@ -708,8 +708,8 @@ export const BOOST_CC2564MODA = () => (
       footprint="res0603"
       pcbX={-12}
       pcbY={25.1}
-      schX={0.85}
-      schY={-3.5}
+      schX={1.85}
+      schY={-4}
       connections={{ pin1: "net.BOARD_3V3", pin2: "net.PWR_LED_A" }}
     />
     <led
@@ -720,8 +720,8 @@ export const BOOST_CC2564MODA = () => (
       pcbX={-12}
       pcbY={21.75}
       pcbRotation={270}
-      schX={3.5}
-      schY={-3.5}
+      schX={4.5}
+      schY={-4}
       connections={{ pin1: "net.PWR_LED_A", pin2: "net.GND" }}
     />
     <KAN0616_0751B_CL15
